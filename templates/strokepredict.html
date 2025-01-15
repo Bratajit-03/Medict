@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+{% block content %}
+    <div class="row"  style="margin-bottom: 477px;">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            {% if pred == 1 %}
+                <div class="card card-body alert alert-danger"><center>IT SEEMS THAT YOU HAVE A HIGH CHANCE OF <b>BRAIN STROKE ATTACK.</b><br><br>CONSULT A DOCTOR AS SOON AS POSSIBLE!!</center></div>
+            {% else %}
+                <div class="card card-body alert alert-success"><center><b>GREAT!!YOU ARE FULLY FIT & FINE.</b><br><br>EAT HEALTHY,STAY HEALTHY & KEEP SMILING</center></div>
+            {% endif %}
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4"><a href="{{ url_for('home') }}" class="btn btn-block btn-primary">Back to Home</a></div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+{% endblock %}

@@ -1,0 +1,156 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #3498db, #e74c3c);
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.outer-container {
+    width: 80%;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    color: white;
+}
+
+.form-container {
+    background-color: #ffffff; /* Updated to remove transparency */
+    border: 2px solid white;
+    padding: 22px;
+    border-radius: 15px;
+    margin-bottom: 25px;   
+}
+
+.big-heading {
+    font-size: 2.5rem;
+    background-color: #4e5ef5;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.disease {
+    background-color: #e9ecef; /* Slightly off-white for the card background */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px; /* Rounded corners for a smooth appearance */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+.disease h2 {
+    color: #007bff; /* Soft blue for headings */
+}
+
+
+.disease p {
+    color:  #4A4A4A;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.disease ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 10px;
+    color: #4A5568;
+    text-align: left; /* Left-align bullet points */
+}
+
+.disease ul li {
+    margin-bottom: 8px;
+}
+</style>
+
+<div class="outer-container">
+    <div class="form-container">
+        <h1 class="big-heading">Disease Index</h1>
+
+        <section class="disease">
+            <h2>Heart Disease</h2>
+            <p>Heart disease refers to various types of conditions that can affect heart function. These types include coronary artery disease, heart attack, arrhythmias, and more.</p>
+            <p><strong>Symptoms:</strong></p>
+            <ul>
+                <li>Chest pain or discomfort</li>
+                <li>Shortness of breath</li>
+                <li>Pain, numbness, weakness in the arms or legs</li>
+                <li>Fatigue</li>
+            </ul>
+        </section>
+
+        <section class="disease">
+            <h2>Liver Disease</h2>
+            <p>Liver disease can result from infection, genetic disorders, or excessive alcohol use. It can lead to severe health issues, including liver failure.</p>
+            <p><strong>Symptoms:</strong></p>
+            <ul>
+                <li>Jaundice (yellowing of the skin and eyes)</li>
+                <li>Abdominal pain and swelling</li>
+                <li>Chronic fatigue</li>
+                <li>Nausea or vomiting</li>
+            </ul>
+        </section>
+
+        <section class="disease">
+            <h2>Chronic Kidney Disease (CKD)</h2>
+            <p>Chronic kidney disease involves the gradual loss of kidney function. When kidney disease reaches an advanced stage, dangerous levels of fluid, electrolytes, and wastes can build up in your body.</p>
+            <p><strong>Symptoms:</strong></p>
+            <ul>
+                <li>Fatigue</li>
+                <li>Swelling in the legs, ankles, or feet</li>
+                <li>Shortness of breath</li>
+                <li>Confusion or difficulty concentrating</li>
+            </ul>
+        </section>
+
+        <section class="disease">
+            <h2>Parkinson's Disease</h2>
+            <p>Parkinson's disease is a neurodegenerative disorder that affects movement. It develops gradually, starting with a barely noticeable tremor in just one hand.</p>
+            <p><strong>Symptoms:</strong></p>
+            <ul>
+                <li>Tremor</li>
+                <li>Slowed movement (bradykinesia)</li>
+                <li>Rigid muscles</li>
+                <li>Impaired posture and balance</li>
+            </ul>
+        </section>
+
+        <section class="disease">
+            <h2>Lung Cancer</h2>
+            <p>Lung cancer is a type of cancer that begins in the lungs. It is one of the leading causes of cancer-related deaths worldwide.</p>
+            <p><strong>Symptoms:</strong></p>
+            <ul>
+                <li>Persistent cough</li>
+                <li>Chest pain</li>
+                <li>Shortness of breath</li>
+                <li>Unexplained weight loss</li>
+            </ul>
+        </section>
+
+        <section class="disease">
+            <h2>Brain Stroke</h2>
+            <p>A stroke occurs when the blood supply to part of your brain is interrupted or reduced, preventing brain tissue from getting oxygen and nutrients.</p>
+            <p><strong>Symptoms:</strong></p>
+            <ul>
+                <li>Sudden numbness or weakness in the face, arm, or leg</li>
+                <li>Trouble speaking or understanding speech</li>
+                <li>Difficulty seeing in one or both eyes</li>
+                <li>Loss of balance or coordination</li>
+            </ul>
+        </section>
+
+        
+    </div>
+</div>
+
+{% endblock %}

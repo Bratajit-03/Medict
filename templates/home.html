@@ -1,0 +1,198 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<style>
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #1abc9c, #3498db);
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+/* Hero Section */
+.hero-section h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    animation: fadeInDown 1.5s;
+}
+
+.hero-section p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    animation: fadeInUp 1.5s;
+}
+
+.hero-section button {
+    background: #2ecc71;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    animation: bounceIn 1.8s;
+}
+
+.hero-section button:hover {
+    background: #27ae60;
+    transform: scale(1.1);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Decorative Animations */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.9);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Floating Shapes */
+.floating-shape {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: float 5s infinite ease-in-out;
+    z-index: 0;
+}
+
+.floating-shape.small {
+    width: 50px;
+    height: 50px;
+    top: 10%;
+    left: 80%;
+}
+
+.floating-shape.medium {
+    width: 100px;
+    height: 100px;
+    top: 30%;
+    left: 10%;
+}
+
+.floating-shape.large {
+    width: 150px;
+    height: 150px;
+    top: 60%;
+    left: 70%;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Mobile Devices (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.5rem; /* Reduce font size for better fit */
+    }
+
+    .hero-section p {
+        font-size: 1.2rem; /* Adjust paragraph font size */
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-section button {
+        padding: 0.8rem 1.5rem; /* Adjust button size */
+        font-size: 1rem;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    
+}
+
+
+</style>
+
+<div class="container">
+    <div class="hero-section">
+        <h1>Welcome to Medict: AI Disease Detector</h1>
+        <p>Experience cutting-edge technology for accurate, fast, and reliable disease prediction. Start your journey to better health management today!</p>
+        <button id="get-started-btn">Get Started</button>
+    </div>
+    <div class="floating-shape small"></div>
+    <div class="floating-shape medium"></div>
+    <div class="floating-shape large"></div>
+</div>
+
+<script>
+    // Smooth Button Animation
+    const button = document.getElementById("get-started-btn");
+    button.addEventListener("click", () => {
+        button.innerHTML = "Redirecting...";
+        setTimeout(() => {
+            window.location.href = "/predict"; // Redirects to the prediction page
+        }, 1000);
+    });
+
+    button.addEventListener("click", () => {
+    window.location.href = "{{ url_for('predictorbd') }}"; // Redirects to the prediction page
+});
+
+
+    // Floating Shape Movement
+    document.querySelectorAll(".floating-shape").forEach((shape) => {
+        shape.addEventListener("mouseover", () => {
+            shape.style.transform = "scale(1.2)";
+        });
+        shape.addEventListener("mouseout", () => {
+            shape.style.transform = "scale(1)";
+        });
+    });
+</script>
+
+{% endblock %}

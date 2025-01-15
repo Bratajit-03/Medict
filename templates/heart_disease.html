@@ -1,0 +1,159 @@
+{% extends 'main.html' %}
+{% block content %}
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      height: 100%;
+      color: white;
+      background-image: linear-gradient(to bottom, #3498db, #e74c3c);
+      margin: 0;
+      text-align: center;
+      padding: 0;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    .form-container {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 2px solid white;
+      padding: 22px;
+      border-radius: 15px;
+      margin-top: 80px;
+      margin-bottom: 100px;
+    }
+    .big-heading {
+      font-size: 2.5rem;
+      background-color: #2ecc71;
+      padding: 10px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+    }
+    .form-row {
+      margin-bottom: 20px;
+    }
+    .form-row input {
+      border-radius: 10px;
+    }
+
+    @media (max-width: 576px) {
+      body {
+        max-width: 100vh;
+      }
+      .form-container {
+        padding: 10px;
+        margin-bottom: 20px;
+      }
+      .big-heading {
+        font-size: 2rem;
+      }
+      .form-row input {
+        height: 25px;
+        font-size: 10px;
+      }
+      .submit-btn {
+        margin-top: 20px;
+      }
+    }
+  </style>
+
+  <div class="container">
+    <div>
+      <div class="form-container">
+        <h1 class="big-heading">Heart Disease Prediction</h1>
+        <form class="form-horizontal" action="{{ url_for('heart_diseasepredictPage') }}" method="POST">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="text" class="form-control" name="Age" placeholder="Age (years) eg. 34">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="text" class="form-control" name="Sex" placeholder="Gender(Male: 1, Female: 0)">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="Chest pain type" placeholder="Anginal Chest pain Type(typical: 1, atypical: 2,non-anginal: 3)">
+                </div>
+              </div>
+              <div class="col-md-6">
+              <div class="form-group">
+                <input type="text" class="form-control" name="BP" placeholder="Resting Blood Pressure(in mm/Hg)">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="text" class="form-control" name="Cholesterol" placeholder="Cholesterol(in mm/Dl)">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="text" class="form-control" name="FBS over 120" placeholder="Fasting Blood Sugar over 120(Yes: 1, No: 0)">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="text" class="form-control" name="EKG results" placeholder="Reasting ECG results	(0, 1 or 2)">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="text" class="form-control" name="Max HR" placeholder="Maximum Heart rate Achieved">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="text" class="form-control" name="Exercise angina" placeholder="Exercise angina(Yes: 1, No: 0)">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="text" class="form-control" name="ST depression" placeholder="ST depression	(0 - 7)">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="text" class="form-control" name="Slope of ST" placeholder="Slope of ST	(0 - 2)">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="text" class="form-control" name="Number of vessels fluro" placeholder="Number of vessels coloured by fluroscopy(0 - 3)">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="text" class="form-control offset-md-6" name="Thallium" placeholder="Thallium(Normal: 1, FD: 0 ,RD: 3)">
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary btn-block" value="heartpredict">Predict</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+{% endblock %}

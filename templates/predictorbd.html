@@ -1,0 +1,146 @@
+{% extends 'main.html' %}
+{% block content %}
+  <style>
+   body {
+    height: 100%;
+    color: white;
+    background-image: linear-gradient(to bottom, #3498db, #e74c3c);
+    margin: 0;
+    text-align: center;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    }
+    .form-container {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 2px solid white;
+      padding: 22px;
+      border-radius: 15px;
+      margin-top: 65px;
+      margin-bottom: 75px;             
+    }
+    .big-heading {
+      font-size: 2.5rem;
+      background-color: #2ecc71;
+      padding: 10px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      
+    }
+
+    .card {
+      margin-bottom: 20px;
+      color: black;
+    }
+
+    .card-img-top {
+      max-height: 200px;
+      object-fit: cover;
+    }
+
+    .card-footer {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="form-container">
+          <h1 class="big-heading ">Disease Prediction</h1>
+
+  <div class="row">
+    <!-- Card 1 -->
+    <div class="col-lg-4">
+      <div class="card">
+        <div class="card-body text-center">
+          <h4 class="card-title">Heart Disease</h4>
+          <h6 class="card-subtitle mb-2 text-muted">Model Accuracy: 94.44%</h6>
+          <img src="static/heart.jpg" class="card-img-top img-fluid" alt="Heart Disease Image" style="width: 280px; height: 170px;">
+        </div>
+        <div class="card-footer">
+          <a href="{{ url_for('HeartDiseasePage') }}" class="btn btn-primary">Check</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-lg-4">
+      <div class="card">
+        <div class="card-body text-center">
+          <h4 class="card-title">Liver Disease</h4>
+          <h6 class="card-subtitle mb-2 text-muted">Model Accuracy: 84.66%</h6>
+          <img src="static/liver.jpg" class="card-img-top img-fluid" alt="Liver Disease Image" style="width: 280px; height: 170px;">
+        </div>
+        <div class="card-footer">
+          <a href="{{ url_for('liverPage') }}" class="btn btn-primary">Check</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-lg-4">
+      <div class="card">
+        <div class="card-body text-center">
+          <h4 class="card-title">Chronic Kidney Disease</h4>
+          <h6 class="card-subtitle mb-2 text-muted">Model Accuracy: 98.75%</h6>
+          <img src="static/kidney.jpg" class="card-img-top img-fluid" alt="Kidney Disease Image" style="width: 280px; height: 170px;">
+        </div>
+        <div class="card-footer">
+          <a href="{{ url_for('CKDPage') }}" class="btn btn-primary">Check</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Card 4 -->
+    <div class="col-lg-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h4 class="card-title">Perkinson's Disease</h4>
+            <h6 class="card-subtitle mb-2 text-muted">Model Accuracy: 94.87%</h6>
+            <img src="static/parkinson.jpg" class="card-img-top img-fluid" alt="Parkinson's Disease Image" style="width: 280px; height: 170px;">
+          </div>
+          <div class="card-footer">
+            <a href="{{ url_for('parkinsonPage') }}" class="btn btn-primary">Check</a>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Card 5 -->
+      <div class="col-lg-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h4 class="card-title">Lung Cancer</h4>
+            <h6 class="card-subtitle mb-2 text-muted">Model Accuracy: 96.42%</h6>
+            <img src="static/lung_cancer.jpg" class="card-img-top img-fluid" alt="Lung Cancer Image" style="width: 280px; height: 170px;">
+          </div>
+          <div class="card-footer">
+            <a href="{{ url_for('lungCancerPage') }}" class="btn btn-primary">Check</a>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Card 6 -->
+      <div class="col-lg-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h4 class="card-title">Brain Stroke</h4>
+            <h6 class="card-subtitle mb-2 text-muted">Model Accuracy: 98.13%</h6>
+            <img src="static/brain_stroke.jpg" class="card-img-top img-fluid" alt="Lung Cancer Image" style="width: 280px; height: 170px;">
+          </div>
+          <div class="card-footer">
+            <a href="{{ url_for('strokePage') }}" class="btn btn-primary">Check</a>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  
+</div>
+    </div>
+    
+
+{% endblock %}

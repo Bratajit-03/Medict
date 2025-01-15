@@ -1,0 +1,233 @@
+{% extends 'main.html' %} {% block content %}
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<!-- Custom CSS -->
+<style>
+    body {
+        height: 100%;
+        color: white;
+        background-image: linear-gradient(to bottom, #3498db, #e74c3c);
+        margin: 0;
+        text-align: center;
+        padding: 0;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+    .form-container {
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 2px solid white;
+        padding: 22px;
+        border-radius: 15px;
+        margin-top: 80px;
+        margin-bottom: 100px;
+    }
+
+    .big-heading {
+        font-size: 2.5rem;
+        background-color: #2ecc71;
+        padding: 10px;
+        border-radius: 15px;
+        margin-bottom: 30px;
+    }
+
+    .form-row {
+        margin-bottom: 20px;
+    }
+
+    .form-row input {
+        border-radius: 10px;
+    }
+
+    @media (max-width: 576px) {
+        body {
+            max-width: 100vh;
+        }
+
+        .form-container {
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .big-heading {
+            font-size: 2rem;
+        }
+
+        .form-row input {
+            height: 25px;
+            font-size: 10px;
+        }
+
+        .submit-btn {
+            margin-top: 20px;
+        }
+    }
+</style>
+
+<div class="container">
+    <div>
+        <div class="form-container">
+            <h1 class="big-heading">Parkinson's Disease Prediction</h1>
+            <form class="form-horizontal" action="{{ url_for('parkinsonpredictPage') }}" method="POST">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="MDVP:Fhi(Hz)"
+                                placeholder="MDVP:Fhi(Hz)" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="MDVP:Jitter(%)" placeholder="MDVP:Jitter(%)" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="MDVP:Jitter(Abs)" placeholder="MDVP:Jitter(Abs)" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="MDVP:RAP"
+                                placeholder="MDVP:RAP" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="MDVP:PPQ" placeholder="MDVP:PPQ" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="Jitter:DDP" placeholder="Jitter:DDP" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="MDVP:Shimmer"
+                                placeholder="MDVP:Shimmer" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="MDVP:Shimmer(dB)" placeholder="MDVP:Shimmer(dB)">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="Shimmer:APQ3"
+                                placeholder="Shimmer:APQ3" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="Shimmer:APQ5"
+                                placeholder="Shimmer:APQ5" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="MDVP:APQ" placeholder="MDVP:APQ" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="Shimmer:DDA"
+                                placeholder="Shimmer:DDA" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="NHR"
+                                placeholder="NHR" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="RPDE" placeholder="RPDE" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="DFA"
+                                placeholder="DFA" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="spread1"
+                                placeholder="spread1" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="spread2" placeholder="spread2" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="D2"
+                                placeholder="D2" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                    <div class="form-group">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="PPE" placeholder="PPE" />
+                    </div>
+                </div>
+                </div>
+                <br>
+
+               <!---- <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="appet"
+                                placeholder="Shortness of Breath(Yes: 1, No: 0)" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="pe" placeholder="Age (years) eg. 34" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="ane"
+                                placeholder="Swallowing Difficulty(Yes: 1, No: 0)" />
+                        </div>
+                    </div>
+                </div>
+            -->
+
+                <button class="btn btn-primary btn-block" value="parkinsonpredict">Predict</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+{% endblock %}
