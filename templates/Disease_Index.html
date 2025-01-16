@@ -2,61 +2,73 @@
 {% block content %}
 
 <style>
+/* General Page Styles */
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #3498db, #e74c3c);
-    color: white;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #8e44ad, #3498db);
+    color: #f5efeff9;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 .outer-container {
-    width: 80%;
-    margin: 30px auto;
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
     border-radius: 15px;
     color: white;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
 .form-container {
-    background-color: #ffffff; /* Updated to remove transparency */
-    border: 2px solid white;
-    padding: 22px;
+    background-color: white;
+    padding: 25px;
     border-radius: 15px;
-    margin-bottom: 25px;   
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .big-heading {
-    font-size: 2.5rem;
-    background-color: #4e5ef5;
+    font-size: 3rem;
+    background: linear-gradient(to right, #4caf50, #2ecc71);
     color: white;
     text-align: center;
     padding: 15px;
-    border-radius: 15px;
-    margin-bottom: 30px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    animation: slideInDown 1.5s ease-in-out;
 }
 
+/* Disease Section Styles */
 .disease {
-    background-color: #e9ecef; /* Slightly off-white for the card background */
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px; /* Rounded corners for a smooth appearance */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to bottom, #e6e4e4, #eaeaea);
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
 }
 
-
-
+.disease:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
 
 .disease h2 {
-    color: #007bff; /* Soft blue for headings */
+    color: #2980b9;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    animation: fadeInLeft 1s ease;
 }
 
-
 .disease p {
-    color:  #4A4A4A;
-    line-height: 1.6;
+    color: #4a4a4a;
+    line-height: 1.7;
+    font-size: 1rem;
     margin-bottom: 15px;
 }
 
@@ -64,13 +76,139 @@ body {
     list-style-type: disc;
     padding-left: 20px;
     margin-top: 10px;
-    color: #4A5568;
-    text-align: left; /* Left-align bullet points */
+    color: #333;
+    font-size: 1rem;
+    text-align: left;
 }
 
 .disease ul li {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
+
+/* Decorative Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInDown {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Floating Shapes */
+.floating-shape {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    animation: float 6s infinite ease-in-out;
+    z-index: -1;
+}
+
+.floating-shape.small {
+    width: 60px;
+    height: 60px;
+    top: 10%;
+    left: 85%;
+}
+
+.floating-shape.medium {
+    width: 100px;
+    height: 100px;
+    top: 40%;
+    left: 15%;
+}
+
+.floating-shape.large {
+    width: 150px;
+    height: 150px;
+    top: 70%;
+    left: 60%;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Tablet (max-width: 768px) */
+@media (max-width: 768px) {
+    .outer-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .big-heading {
+        font-size: 2rem;
+        padding: 10px;
+    }
+
+    .disease {
+        padding: 15px;
+    }
+
+    .disease h2 {
+        font-size: 1.5rem;
+    }
+
+    .disease p {
+        font-size: 1rem;
+    }
+
+    .disease ul li {
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    .big-heading {
+        font-size: 1.8rem;
+        padding: 8px;
+    }
+
+    .disease {
+        padding: 10px;
+    }
+
+    .disease h2 {
+        font-size: 1.2rem;
+    }
+
+    .disease p {
+        font-size: 0.9rem;
+    }
+
+    .disease ul li {
+        font-size: 0.8rem;
+    }
+}
+
 </style>
 
 <div class="outer-container">
@@ -148,9 +286,25 @@ body {
                 <li>Loss of balance or coordination</li>
             </ul>
         </section>
-
-        
     </div>
+
+    <div class="floating-shape small"></div>
+    <div class="floating-shape medium"></div>
+    <div class="floating-shape large"></div>
 </div>
+
+<script>
+    // Add hover effect for disease sections
+    document.querySelectorAll('.disease').forEach((disease) => {
+        disease.addEventListener('mouseover', () => {
+            disease.style.transform = 'translateY(-10px)';
+            disease.style.boxShadow = '0 12px 30px rgba(0, 0, 0, 0.4)';
+        });
+        disease.addEventListener('mouseout', () => {
+            disease.style.transform = 'translateY(0)';
+            disease.style.boxShadow = '0 6px 15px rgba(0, 0, 0, 0.2)';
+        });
+    });
+</script>
 
 {% endblock %}
